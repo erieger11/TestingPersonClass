@@ -12,6 +12,11 @@ public class TestPerson {
         // Given
         String expectedName = "";
         Integer expectedAge = Integer.MAX_VALUE;
+        String expectedHairColor = "";
+        Double expectedWingSpan = Double.MAX_VALUE;
+        Integer expectedWeight = Integer.MAX_VALUE;
+        String expectedBloodType = "";
+        String expectedEyeColor = "";
 
         // When
         Person person = new Person();
@@ -19,9 +24,20 @@ public class TestPerson {
         // Then
         String actualName = person.getName();
         Integer actualAge = person.getAge();
+        String actualHairColor = person.getHairColor();
+        Double actualWingSpan = person.getWingSpan();
+        Integer actualWeight = person.getWeight();
+        String actualBloodType = person.getBloodType();
+        String actualEyeColor = person.getEyeColor();
 
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedHairColor, actualHairColor);
+        Assert.assertEquals(expectedWingSpan, actualWingSpan);
+        Assert.assertEquals(expectedWeight, actualWeight);
+        Assert.assertEquals(expectedBloodType, actualBloodType);
+        Assert.assertEquals(expectedEyeColor, actualEyeColor);
+
     }
 
     @Test
@@ -50,6 +66,70 @@ public class TestPerson {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testConstructorWithHairColor() {
+        // Given
+        String expected = "Blonde";
+
+        // When
+        Person person = new Person(expected);
+
+        // Then
+        String actual = person.getHairColor();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testConstructorWingSpan() {
+        // Given
+        double expected = 1.7;
+
+        // When
+        Person person = new Person(String.valueOf(expected));
+
+        // Then
+        double actual = person.getWingSpan();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testConstructorWeight() {
+        // Given
+        Integer expected = 150;
+
+        // When
+        Person person = new Person(expected);
+
+        // Then
+        Integer actual = person.getWeight();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testConstructorWithBloodType() {
+        // Given
+        String expected = "A negative";
+
+        // When
+        Person person = new Person(expected);
+
+        // Then
+        String actual = person.getBloodType();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testConstructorWithEyeColor() {
+        // Given
+        String expected = "Blue";
+
+        // When
+        Person person = new Person(expected);
+
+        // Then
+        String actual = person.getEyeColor();
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+
 
     @Test
     public void testConstructorWithNameAndAge() {
@@ -67,6 +147,19 @@ public class TestPerson {
         Assert.assertEquals(expectedAge, actualAge);
         Assert.assertEquals(expectedName, actualName);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     public void testSetName() {
@@ -93,6 +186,72 @@ public class TestPerson {
 
         // Then
         Integer actual = person.getAge();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetHairColor() {
+        // Given
+        Person person = new Person();
+        String expected = "Blonde";
+
+        // When
+        person.setHairColor(expected);
+
+        // Then
+        String actual = person.getHairColor();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetWingSpan() {
+        // Given
+        Person person = new Person();
+        double expected = 1.7;
+
+        // When
+        person.setWingSpan(expected);
+
+        // Then
+        double actual = person.getWingSpan();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetWeight() {
+        // Given
+        Person person = new Person();
+        Integer expected = 150;
+
+        // When
+        person.setWeight(expected);
+
+        // Then
+        Integer actual = person.getWeight();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetBloodType() {
+        // Given
+        Person person = new Person();
+        String expected = "A Negative";
+
+        // When
+        person.setBloodType(expected);
+
+        // Then
+        String actual = person.getBloodType();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetEyeColor() {
+        // Given
+        Person person = new Person();
+        String expected = "Blue";
+
+        // When
+        person.setEyeColor(expected);
+
+        // Then
+        String actual = person.getEyeColor();
         Assert.assertEquals(expected, actual);
     }
 }
