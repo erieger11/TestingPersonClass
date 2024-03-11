@@ -11,15 +11,47 @@ public class TestPerson {
     public void testDefaultConstructor() {
         // Given
         String expectedName = "";
-        Integer expectedAge = Integer.MAX_VALUE;
+        Integer expectedAge = 0;
         String expectedHairColor = "";
-        Double expectedWingSpan = Double.MAX_VALUE;
-        Integer expectedWeight = Integer.MAX_VALUE;
+        Double expectedWingSpan = 0.0;
+        Integer expectedWeight = 0;
         String expectedBloodType = "";
         String expectedEyeColor = "";
 
         // When
         Person person = new Person();
+
+        // Then
+        String actualName = person.getName();
+        Integer actualAge = person.getAge();
+        String actualHairColor = person.getHairColor();
+        Double actualWingSpan = person.getWingSpan();
+        Integer actualWeight = person.getWeight();
+        String actualBloodType = person.getBloodType();
+        String actualEyeColor = person.getEyeColor();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedHairColor, actualHairColor);
+        Assert.assertEquals(expectedWingSpan, actualWingSpan);
+        Assert.assertEquals(expectedWeight, actualWeight);
+        Assert.assertEquals(expectedBloodType, actualBloodType);
+        Assert.assertEquals(expectedEyeColor, actualEyeColor);
+
+    }
+    @Test
+    public void testAllConstructor() {
+        // Given
+        String expectedName = "Billy";
+        Integer expectedAge = 32;
+        String expectedHairColor = "Blonde";
+        Double expectedWingSpan = 1.7;
+        Integer expectedWeight = 179;
+        String expectedBloodType = "A negative";
+        String expectedEyeColor = "Brown";
+
+        // When
+        Person person = new Person(expectedName,expectedAge,expectedHairColor,expectedWingSpan,expectedWeight,expectedBloodType,expectedEyeColor);
 
         // Then
         String actualName = person.getName();
@@ -65,17 +97,17 @@ public class TestPerson {
         Integer actual = person.getAge();
         Assert.assertEquals(expected, actual);
     }
-
     @Test
     public void testConstructorWithHairColor() {
         // Given
         String expected = "Blonde";
 
         // When
-        Person person = new Person(expected);
+        Person person = new Person("Billy",32, expected,1.7,179,"A negative","Brown");
 
         // Then
         String actual = person.getHairColor();
+        String actualHairColor = person.getHairColor();
         Assert.assertEquals(expected, actual);
     }
     @Test
@@ -84,11 +116,10 @@ public class TestPerson {
         double expected = 1.7;
 
         // When
-        Person person = new Person(String.valueOf(expected));
-
+        Person person = new Person("Billy",32, "Blonde", expected,179,"A negative","Brown");
         // Then
         double actual = person.getWingSpan();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
     @Test
     public void testConstructorWeight() {
@@ -96,8 +127,7 @@ public class TestPerson {
         Integer expected = 150;
 
         // When
-        Person person = new Person(expected);
-
+        Person person = new Person("Billy",32, "Blonde",1.7,expected,"A negative","Brown");
         // Then
         Integer actual = person.getWeight();
         Assert.assertEquals(expected, actual);
@@ -108,8 +138,7 @@ public class TestPerson {
         String expected = "A negative";
 
         // When
-        Person person = new Person(expected);
-
+        Person person = new Person("Billy",32, "blonde",1.7,179,expected,"Brown");
         // Then
         String actual = person.getBloodType();
         Assert.assertEquals(expected, actual);
@@ -120,8 +149,7 @@ public class TestPerson {
         String expected = "Blue";
 
         // When
-        Person person = new Person(expected);
-
+        Person person = new Person("Billy",32, "Blonde",1.7,179,"A negative", expected);
         // Then
         String actual = person.getEyeColor();
         Assert.assertEquals(expected, actual);
@@ -213,7 +241,7 @@ public class TestPerson {
 
         // Then
         double actual = person.getWingSpan();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.0);
     }
     @Test
     public void testSetWeight() {

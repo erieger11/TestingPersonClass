@@ -4,13 +4,13 @@ package com.zipcodewilmington.person;
  * If you did ObjectsOne lab, you might recognize this code?
  */
 public class Person {
-    private String name;
-    private int age;
-    private String hairColor;
+    private String name = "";
+    private int age = 0;
+    private String hairColor = "";
     private double wingSpan = 0.0;
     private int weight = 0;
-    private String bloodType;
-    private String eyeColor;
+    private String bloodType = "";
+    private String eyeColor = "";
 
 
     public Person() {
@@ -22,6 +22,11 @@ public class Person {
 
     public Person(String name) {
         this.name = name;
+    }
+
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
     }
 
     public Person(String name, int age, String hairColor, double wingSpan, int weight, String bloodType, String eyeColor) {
